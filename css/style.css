@@ -49,6 +49,18 @@ body {
     color: rgb(0, 0, 0);
     font-weight: 600;
   }
+
+  .privacy {
+    color: rgb(255, 255, 255);
+    margin-top: 50px;
+    margin-left: 100px;
+    margin: 40px auto auto auto;
+    display: block;
+    text-align: center;
+    width: 200px;
+    font-size: 3px;
+  }
+
   .link:hover {
     color: rgba(150, 150, 150, 0.28);
   }
@@ -74,3 +86,8 @@ body {
   a {
     text-decoration: none;
   }
+  a.privacy:active,
+  a.privacy {
+    text-decoration: none;
+    color: #666;
+}
