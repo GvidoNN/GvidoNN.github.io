@@ -1,65 +1,65 @@
 body {
     height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Это предотвратит горизонтальный скролл */
     background-color: rgb(255, 193, 193);
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-  }
+    position: relative; /* Добавляем для корректного позиционирования псевдоэлементов */
+}
 
-  #logo {
+#logo {
     font-size: 64px;
-
     color: rgb(0, 0, 0);
     font-weight: 800;
     text-align: center;
     margin: 40px auto auto auto;
-  }
+}
 
- body::before, body::after{
+body::before, body::after {
     content: '';
-    position: absolute;
+    position: fixed; /* Меняем absolute на fixed */
     top: -2px;
     left: -2px;
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
+    right: -2px; /* Заменяем width на right */
+    bottom: -2px; /* Заменяем height на bottom */
     background: linear-gradient(45deg, #feb4f0, #ff94eb,#ff80e8, #ff66e3, #fe4dde, #ff38db, #ff1ad5, #fe0bd1, #fe0bd1);
     background-size: 300%;
     z-index:-1;
     animation: move 12s linear infinite;
- }
+}
 
- body::after {
+body::after {
     filter: blur(8px);
- }
+}
 
- @keyframes move {
+@keyframes move {
     0% {
         background-position: 0 0;
     }
-
     50% {
         background-position: 300% 0;
     }
-
     100% {
         background-position: 0 0;
     }
- }
+}
 
-
-  .image-container {
+.image-container {
     margin: 40px auto auto auto;
     display: block;
     text-align: center;
     width: 200px;
-  }
+}
 
-  #links {
+#links {
     margin: 40px auto auto auto;
     display: block;
     text-align: center;
     width: 200px;
-  }
+}
 
-  .link  {
+.link {
     margin: auto auto auto auto;
     display: block;
     font-size: 32px;
@@ -67,114 +67,38 @@ body {
     padding: 3px;
     color: rgb(0, 0, 0);
     font-weight: 600;
-  }
+}
 
-  .privacy {
-    color: rgb(255, 255, 255);
-    position: absolute;
+/* Объединяем все privacy-классы в один с использованием flex */
+.privacy-links {
+    position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
-    text-align: left;
-    font-size: 14px; /* Укажите желаемый размер шрифта */
-    padding: 10px; /* Добавим немного отступа для читаемости */
-    box-sizing: border-box; /* Учтем отступы в общей ширине элемента */
-    margin-top: 10px; /* Добавим отступ сверху */
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    background: rgba(0,0,0,0.2);
 }
 
-.privacy2 {
+.privacy-links a {
     color: rgb(255, 255, 255);
-    position: absolute;
-    bottom: 0;
-    left: 200px;
-    width: 100%;
-    text-align: left;
-    font-size: 14px; /* Укажите желаемый размер шрифта */
-    padding: 10px; /* Добавим немного отступа для читаемости */
-    box-sizing: border-box; /* Учтем отступы в общей ширине элемента */
-    margin-top: 10px; /* Добавим отступ сверху */
-}
-
-.privacy3 {
-    color: rgb(255, 255, 255);
-    position: absolute;
-    bottom: 0;
-    left: 400px;
-    width: 100%;
-    text-align: left;
-    font-size: 14px; /* Укажите желаемый размер шрифта */
-    padding: 10px; /* Добавим немного отступа для читаемости */
-    box-sizing: border-box; /* Учтем отступы в общей ширине элемента */
-    margin-top: 10px; /* Добавим отступ сверху */
-}
-
-.privacy4 {
-    color: rgb(255, 255, 255);
-    position: absolute;
-    bottom: 0;
-    left: 600px;
-    width: 100%;
-    text-align: left;
-    font-size: 14px; /* Укажите желаемый размер шрифта */
-    padding: 10px; /* Добавим немного отступа для читаемости */
-    box-sizing: border-box; /* Учтем отступы в общей ширине элемента */
-    margin-top: 10px; /* Добавим отступ сверху */
-}
-
-
-.privacy5 {
-    color: rgb(255, 255, 255);
-    position: absolute;
-    bottom: 0;
-    left: 800px;
-    width: 100%;
-    text-align: left;
-    font-size: 14px; /* Укажите желаемый размер шрифта */
-    padding: 10px; /* Добавим немного отступа для читаемости */
-    box-sizing: border-box; /* Учтем отступы в общей ширине элемента */
-    margin-top: 10px; /* Добавим отступ сверху */
-}
-
-.privacy6 {
-    color: rgb(255, 255, 255);
-    position: absolute;
-    bottom: 0;
-    left: 1100px;
-    width: 100%;
-    text-align: left;
-    font-size: 14px; /* Укажите желаемый размер шрифта */
-    padding: 10px; /* Добавим немного отступа для читаемости */
-    box-sizing: border-box; /* Учтем отступы в общей ширине элемента */
-    margin-top: 10px; /* Добавим отступ сверху */
-}
-
-  .link:hover {
-    color: rgba(150, 150, 150, 0.28);
-  }
-
-  .cv-menu {
-    background-color:rgba(0, 0, 0, 0);
-    border-color: rgba(0, 0, 0, 0);
-  }
-  .cv-menu :hover{
-    background-color:rgba(0, 0, 0, 0);
-    color: rgba(255, 255, 255, 0.28);
-  }
-  .cv-item {
-    color: rgba(255, 255, 255, 0.807);
-  }
-  .drop-title {
-    color: rgba(255, 255, 255, 0.807);
-  }
-  .drop-title:hover {
-    color: rgba(255, 255, 255, 0.28);
-  }
-
-  a {
+    font-size: 14px;
     text-decoration: none;
-  }
-  a.privacy:active,
-  a.privacy {
+}
+
+.link:hover {
+    color: rgba(150, 150, 150, 0.28);
+}
+
+a {
+    text-decoration: none;
+}
+
+a.privacy:active,
+a.privacy {
     text-decoration: none;
     color: #666;
 }
